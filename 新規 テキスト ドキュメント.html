@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GiLL | ジェラート＆猫雑貨の体験型カフェ</title>
+    
+    <!-- Google Fonts: 洗練された明朝体(Shippori Mincho)とモダンなゴシック(Zen Kaku Gothic New) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gill-bg': '#FAF8F5',       /* 温かみのあるオフホワイト */
+                        'gill-text': '#3A3532',     /* 柔らかい墨色 */
+                        'gill-black': '#1A1818',    /* 黒猫を象徴する引き締めの黒 */
+                        'gill-wood': '#8B6A4F',     /* ログハウス風の木目ブラウン */
+                        'gill-wood-light': '#D4C1B0',
+                        'gill-pink': '#F7EBE8',     /* 肉球やジェラートを連想させる淡いピンク */
+                        'gill-cream': '#F0EBE1',
+                    },
+                    fontFamily: {
+                        serif: ['"Shippori Mincho"', 'serif'],
+                        sans: ['"Zen Kaku Gothic New"', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '3rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* カスタムスタイル・アニメーション */
+        body {
+            background-color: #FAF8F5;
+            color: #3A3532;
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.215, 0.610, 0.355, 1.000), transform 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        }
+        
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 画像の曲線切り抜き（猫のしなやかさを表現） */
+        .blob-shape {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+        .blob-shape-2 {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+
+        /* テキストの縦書き設定（一部装飾用） */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden">
+
+    <!-- ナビゲーションバー -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300" id="header">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-serif text-2xl font-semibold tracking-widest text-gill-black">GiLL</a>
+            <div class="flex items-center gap-6">
+                <a href="#menu" class="hidden md:block text-sm tracking-widest hover:text-gill-wood transition-colors">MENU</a>
+                <a href="#access" class="hidden md:block text-sm tracking-widest hover:text-gill-wood transition-colors">ACCESS</a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-gill-black text-white px-4 py-2 rounded-full text-sm hover:bg-gill-text transition-colors shadow-lg">
+                    <i data-lucide="instagram" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Instagram</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-[90vh] md:h-screen w-full flex items-center justify-center overflow-hidden">
+        <!-- 背景画像 (富士山・テラス・カフェの雰囲気) -->
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1920&q=80" alt="GiLL Cafe Interior" class="w-full h-full object-cover">
+            <!-- 上品なグラデーションオーバーレイ -->
+            <div class="absolute inset-0 bg-gradient-to-b from-gill-bg/40 via-gill-bg/20 to-gill-bg"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 fade-in-up">
+            <p class="font-serif text-gill-wood tracking-[0.2em] mb-4 text-sm md:text-base">ジェラート＆猫雑貨の体験型カフェ</p>
+            <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl text-gill-black leading-tight mb-8">
+                猫という概念に包まれる、<br class="md:hidden">癒やしのひとときを。
+            </h1>
+            <p class="font-sans text-gill-text mb-12 max-w-lg mx-auto leading-loose text-sm md:text-base">
+                八ヶ岳の自然に抱かれたログハウス。<br>
+                見掛け倒しではない確かなジェラートと、<br>
+                作家たちが生み出す猫雑貨が織りなす非日常。
+            </p>
+            
+            <a href="#access" class="inline-flex flex-col items-center gap-2 text-gill-text hover:text-gill-wood transition-colors">
+                <span class="text-xs tracking-widest">Scroll to explore</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 animate-bounce"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 md:py-32 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-16 md:gap-24">
+                <!-- 画像エリア：曲線を活かしたレイアウト -->
+                <div class="w-full md:w-1/2 relative fade-in-up">
+                    <div class="aspect-[4/5] bg-gill-cream blob-shape overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" alt="黒猫" class="w-full h-full object-cover mix-blend-multiply opacity-90">
+                    </div>
+                    <!-- 装飾要素 -->
+                    <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-gill-wood-light rounded-full mix-blend-multiply opacity-50 blur-xl"></div>
+                </div>
+
+                <!-- テキストエリア -->
+                <div class="w-full md:w-1/2 fade-in-up">
+                    <h2 class="font-serif text-3xl md:text-4xl text-gill-black mb-6">Our Story</h2>
+                    <p class="font-sans leading-loose text-gill-text mb-6">
+                        店名「GiLL」は、私たち経営者姉妹が愛した一匹の黒猫の名前に由来しています。<br><br>
+                        えのき笑店街の2階、自然豊かなログハウス風の空間の扉を開けると、そこは「猫」をテーマにした大人の隠れ家。<br><br>
+                        おひとりさまでも静かにくつろげるカウンター席や、愛犬と一緒に自然の風を感じられるテラス席をご用意しました。日常の喧騒から離れ、ゆったりとした時間をお過ごしください。
+                    </p>
+                    <div class="flex items-center gap-4 text-gill-wood text-sm">
+                        <span class="flex items-center gap-1"><i data-lucide="coffee" class="w-4 h-4"></i> カウンター 4席</span>
+                        <span class="flex items-center gap-1"><i data-lucide="sun" class="w-4 h-4"></i> テラス 4席 (ペット可)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gelato & Cafe Menu Section -->
+    <section id="menu" class="py-24 md:py-32 bg-gill-black text-gill-bg relative overflow-hidden">
+        <!-- 背景の装飾 -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-gill-wood opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-gill-pink opacity-10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="font-serif text-3xl md:text-4xl mb-4 text-white">Gelato & Cafe</h2>
+                <p class="text-gill-gray text-sm md:text-base max-w-2xl mx-auto leading-loose">
+                    八ヶ岳の新鮮なミルクや山梨県産のフルーツを使用。<br>
+                    手作りの「猫の耳」クッキーと、カップのイラストが合わさって完成する、見て楽しい、食べて美味しい「可愛い猫型ジェラート」。
+                </p>
+            </div>
+
+            <!-- ジェラートメニュー (グリッド) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20 fade-in-up">
+                <!-- Menu Item 1 -->
+                <div class="bg-white/5 p-8 rounded-[2rem] border border-white/10 hover:bg-white/10 transition-colors group">
+                    <div class="w-24 h-24 mx-auto bg-white rounded-full mb-6 relative shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                        <!-- 耳の表現 -->
+                        <div class="absolute -top-2 left-2 w-6 h-6 bg-gill-wood-light rotate-45 transform origin-bottom-right rounded-sm"></div>
+                        <div class="absolute -top-2 right-2 w-6 h-6 bg-gill-wood-light rotate-45 transform origin-bottom-left rounded-sm"></div>
+                        <!-- アイスのプレースホルダー画像 -->
+                        <img src="https://images.unsplash.com/photo-1570197781417-0c75c80529d8?auto=format&fit=crop&w=200&q=80" alt="ミルクジェラート" class="w-full h-full object-cover rounded-full p-1">
+                    </div>
+                    <h3 class="font-serif text-xl text-center mb-2">白猫さん</h3>
+                    <p class="text-center text-sm text-gill-gray">八ヶ岳の新鮮ミルク</p>
+                </div>
+
+                <!-- Menu Item 2 -->
+                <div class="bg-white/5 p-8 rounded-[2rem] border border-white/10 hover:bg-white/10 transition-colors group">
+                    <div class="w-24 h-24 mx-auto bg-gill-black rounded-full mb-6 relative shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+                        <div class="absolute -top-2 left-2 w-6 h-6 bg-gill-black rotate-45 transform origin-bottom-right rounded-sm"></div>
+                        <div class="absolute -top-2 right-2 w-6 h-6 bg-gill-black rotate-45 transform origin-bottom-left rounded-sm"></div>
+                        <div class="w-full h-full bg-[#333] rounded-full p-1 border border-[#555]"></div>
+                    </div>
+                    <h3 class="font-serif text-xl text-center mb-2">黒猫さん</h3>
+                    <p class="text-center text-sm text-gill-gray">香り豊かな黒ゴマ</p>
+                </div>
+
+                <!-- Menu Item 3 -->
+                <div class="bg-white/5 p-8 rounded-[2rem] border border-white/10 hover:bg-white/10 transition-colors group">
+                    <div class="w-24 h-24 mx-auto bg-gill-wood-light rounded-full mb-6 relative">
+                        <div class="absolute -top-2 left-2 w-6 h-6 bg-gill-wood rotate-45 transform origin-bottom-right rounded-sm"></div>
+                        <div class="absolute -top-2 right-2 w-6 h-6 bg-gill-black rotate-45 transform origin-bottom-left rounded-sm"></div>
+                        <div class="w-full h-full bg-gradient-to-tr from-gill-cream via-gill-wood-light to-[#333] rounded-full p-1"></div>
+                    </div>
+                    <h3 class="font-serif text-xl text-center mb-2">三毛猫さん</h3>
+                    <p class="text-center text-sm text-gill-gray">ミルク・豆乳・きな粉・黒蜜</p>
+                </div>
+
+                <!-- Menu Item 4 -->
+                <div class="bg-white/5 p-8 rounded-[2rem] border border-white/10 hover:bg-white/10 transition-colors group">
+                    <div class="w-24 h-24 mx-auto bg-[#4A3020] rounded-full mb-6 relative">
+                        <div class="absolute -top-2 left-2 w-6 h-6 bg-[#3A2010] rotate-45 transform origin-bottom-right rounded-sm"></div>
+                        <div class="absolute -top-2 right-2 w-6 h-6 bg-[#3A2010] rotate-45 transform origin-bottom-left rounded-sm"></div>
+                        <div class="w-full h-full bg-[#4A3020] rounded-full p-1 border border-[#5A4030]"></div>
+                    </div>
+                    <h3 class="font-serif text-xl text-center mb-2">ちょこさん</h3>
+                    <p class="text-center text-sm text-gill-gray">濃厚イタリア産チョコ</p>
+                </div>
+            </div>
+
+            <!-- Other Menu Items -->
+            <div class="bg-gill-bg text-gill-text p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] fade-in-up">
+                <h3 class="font-serif text-2xl text-center mb-8">Side & Drinks</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+                    <div>
+                        <ul class="space-y-6">
+                            <li class="flex justify-between items-baseline border-b border-gill-wood/20 pb-2">
+                                <span class="font-medium">サクサク肉球パイ</span>
+                            </li>
+                            <li class="flex justify-between items-baseline border-b border-gill-wood/20 pb-2">
+                                <span class="font-medium">カウくんのプリン <span class="text-xs text-gill-wood ml-2">(姉妹店提携)</span></span>
+                            </li>
+                            <li class="flex justify-between items-baseline border-b border-gill-wood/20 pb-2">
+                                <span class="font-medium">季節限定ジェラート</span>
+                                <span class="text-xs text-gill-wood text-right">ブラッドオレンジ / 地元産いちご / マロングラッセ等</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="space-y-6">
+                            <li class="flex justify-between items-baseline border-b border-gill-wood/20 pb-2">
+                                <span class="font-medium">コクテール堂珈琲</span>
+                            </li>
+                            <li class="flex justify-between items-baseline border-b border-gill-wood/20 pb-2">
+                                <span class="font-medium">norm tea houseの紅茶</span>
+                            </li>
+                        </ul>
+                        <p class="text-sm text-gill-wood mt-8 text-center bg-gill-pink/50 p-4 rounded-xl">
+                            ※メニュー内容は季節や仕入れにより変更となる場合がございます。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information & Access Section -->
+    <section id="access" class="py-24 md:py-32 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="font-serif text-3xl md:text-4xl text-gill-black mb-4">Information & Access</h2>
+                <p class="text-gill-text">静かな時間と、猫たちがお待ちしています。</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
+                <!-- 店舗情報 -->
+                <div class="w-full lg:w-5/12 fade-in-up">
+                    <dl class="space-y-6 text-sm md:text-base">
+                        <div class="flex border-b border-gill-text/10 pb-4">
+                            <dt class="w-24 md:w-32 font-semibold text-gill-black">所在地</dt>
+                            <dd class="flex-1 text-gill-text leading-relaxed">
+                                〒409-1501<br>
+                                山梨県北杜市大泉町西井出8240-957<br>
+                                えのき笑店街 2階
+                            </dd>
+                        </div>
+                        <div class="flex border-b border-gill-text/10 pb-4">
+                            <dt class="w-24 md:w-32 font-semibold text-gill-black">営業時間</dt>
+                            <dd class="flex-1 text-gill-text">
+                                11:00～17:00<br>
+                                <span class="text-xs text-gill-wood mt-1 block">※冬季等、休業・時間変更あり</span>
+                            </dd>
+                        </div>
+                        <div class="flex border-b border-gill-text/10 pb-4">
+                            <dt class="w-24 md:w-32 font-semibold text-gill-black">定休日</dt>
+                            <dd class="flex-1 text-gill-text">
+                                火曜日・水曜日<br>
+                                <span class="text-xs text-gill-wood mt-1 block">※本店に準じ変動あり</span>
+                            </dd>
+                        </div>
+                        <div class="flex border-b border-gill-text/10 pb-4">
+                            <dt class="w-24 md:w-32 font-semibold text-gill-black">設備・駐車場</dt>
+                            <dd class="flex-1 text-gill-text">
+                                全8席（カウンター4席、テラス4席）<br>
+                                駐車場 13台（共用）
+                            </dd>
+                        </div>
+                        <div class="flex border-b border-gill-text/10 pb-4">
+                            <dt class="w-24 md:w-32 font-semibold text-gill-black">決済方法</dt>
+                            <dd class="flex-1 text-gill-text">
+                                クレジットカード、電子マネー、QR決済（PayPay等）
+                            </dd>
+                        </div>
+                        <div class="flex border-b border-gill-text/10 pb-4">
+                            <dt class="w-24 md:w-32 font-semibold text-gill-black">姉妹店</dt>
+                            <dd class="flex-1 text-gill-text">
+                                本店「le.chat.des.bois」<br>
+                                <span class="text-xs text-gill-text mt-1 block">（清里高原「萌木の村」内）</span>
+                            </dd>
+                        </div>
+                    </dl>
+
+                    <!-- 最重要CTA：Instagram -->
+                    <div class="mt-12 bg-gill-pink/30 p-8 rounded-[2rem] text-center border border-gill-pink">
+                        <p class="font-serif text-gill-black mb-2 text-lg">最新の営業情報はInstagramへ</p>
+                        <p class="text-xs text-gill-wood mb-6">季節により営業日やメニューが変動いたします。</p>
+                        <a href="https://instagram.com/gill_by_lechatdesbois" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] text-white px-8 py-4 rounded-full font-medium hover:opacity-90 transition-opacity w-full md:w-auto shadow-lg">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                            @gill_by_lechatdesbois
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Maps -->
+                <div class="w-full lg:w-7/12 fade-in-up delay-100">
+                    <div class="w-full h-[400px] md:h-full min-h-[400px] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-xl border-4 border-white relative group">
+                        <!-- マップをタップしやすくするためのオーバーレイ (必要に応じて削除可) -->
+                        <div class="absolute inset-0 bg-gill-wood/10 pointer-events-none transition-opacity group-hover:opacity-0 z-10"></div>
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3230.138766155556!2d138.4068305!3d35.9080775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601c71b1b1b1b1b1%3A0x1b1b1b1b1b1b1b1b!2z44CSNDA5LTE1MDEg5bGx5qKo55yM5YyX5p2c5biC5aSn5rOJ55S66KW_5LqV5Ye6ODIyNDAtOTU3!5e0!3m2!1sja!2sjp!4v1600000000000!5m2!1sja!2sjp" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="absolute inset-0 grayscale-[20%] contrast-125">
+                        </iframe>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <a href="https://maps.google.com/?q=山梨県北杜市大泉町西井出8240-957" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-gill-wood hover:text-gill-black transition-colors text-sm font-medium">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            Google Mapsで経路を確認する
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gill-black text-gill-bg py-12 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="font-serif text-3xl mb-8 tracking-widest">GiLL</h2>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://instagram.com/gill_by_lechatdesbois" target="_blank" rel="noopener noreferrer" class="text-gill-gray hover:text-white transition-colors" aria-label="Instagram">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                </a>
+            </div>
+            <p class="text-gill-gray text-xs mb-2">Sister Shop: <a href="#" class="underline hover:text-white transition-colors">le.chat.des.bois</a> (清里高原 萌木の村)</p>
+            <p class="text-gill-gray/50 text-xs">&copy; 2026 GiLL. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Icons Initialization
+        lucide.createIcons();
+
+        // Header Background Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-gill-bg/90', 'backdrop-blur-md', 'shadow-sm');
+                header.classList.remove('py-4');
+                header.classList.add('py-2');
+            } else {
+                header.classList.remove('bg-gill-bg/90', 'backdrop-blur-md', 'shadow-sm');
+                header.classList.remove('py-2');
+                header.classList.add('py-4');
+            }
+        });
+
+        // Scroll Animation (Fade In Up)
+        const fadeElements = document.querySelectorAll('.fade-in-up');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // 一度表示されたら監視を解除
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
