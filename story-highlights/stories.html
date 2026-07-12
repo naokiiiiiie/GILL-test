@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+:root{
+  --paper:#FAF8F5;
+  --paper2:#F3EEE6;
+  --ink:#2E2A27;
+  --ink-soft:#6E655D;
+  --line:#DFD6C9;
+  --wood:#8B6A4F;
+}
+@font-face{font-family:'Shippori';src:local('Shippori Mincho');font-weight:400}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
+html,body{background:#cfc9bf}
+body{font-family:'Zen Kaku Gothic New',sans-serif}
+
+.sheet{display:flex;flex-wrap:wrap;gap:40px;padding:40px;justify-content:center}
+
+/* ---------- Story frame ---------- */
+.story{
+  position:relative;
+  width:1080px;height:1920px;
+  background:var(--paper);
+  color:var(--ink);
+  overflow:hidden;
+  --accent:#8B6A4F;
+  --accent-ink:#6d5238;
+  --tint:#efe7db;
+}
+
+/* subtle paper grain + warm vignette */
+.story .grain{position:absolute;inset:0;opacity:.05;mix-blend-mode:multiply;pointer-events:none}
+.story .vign{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 78% 8%, color-mix(in srgb,var(--tint) 70%,transparent), transparent 60%),
+    radial-gradient(130% 90% at 15% 100%, rgba(139,106,79,.06), transparent 55%);
+}
+
+/* faint oversized cat-face watermark */
+.story .watermark{position:absolute;pointer-events:none;opacity:.05}
+
+/* ---------- padding wrapper ---------- */
+.pad{position:absolute;inset:0;padding:92px 90px 84px;display:flex;flex-direction:column}
+
+/* header */
+.top{display:flex;justify-content:space-between;align-items:baseline}
+.brand{font-family:'Shippori Mincho',serif;font-weight:600;font-size:38px;letter-spacing:.34em;color:var(--ink)}
+.brand small{font-size:15px;letter-spacing:.3em;color:var(--ink-soft);display:block;margin-top:10px;font-family:'Zen Kaku Gothic New';font-weight:300}
+.idx{font-family:'Shippori Mincho',serif;font-size:20px;letter-spacing:.15em;color:var(--ink-soft);text-align:right}
+.idx b{color:var(--accent-ink);font-weight:500}
+.rule{height:1px;background:var(--line);margin:34px 0 0}
+
+/* eyebrow */
+.eyebrow{margin-top:70px;display:flex;align-items:center;gap:20px}
+.eyebrow .dot{width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.eyebrow span{font-size:19px;letter-spacing:.42em;font-weight:400;color:var(--accent-ink);text-transform:uppercase}
+
+/* placeholder for gelato photo */
+.stage{flex:1;display:flex;align-items:center;justify-content:center;position:relative;margin:8px 0}
+.frame{position:relative;width:560px;height:560px}
+.ears{position:absolute;top:-6px;left:0;right:0;height:120px}
+.disc{position:absolute;inset:0;border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 42%, #fff 0%, var(--tint) 78%);
+  border:2px dashed color-mix(in srgb,var(--accent) 55%,#cbb8a2);
+  box-shadow:0 40px 80px -50px rgba(70,50,35,.5), inset 0 0 0 18px rgba(255,255,255,.55);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px}
+.disc .ph-ic{opacity:.6}
+.disc .ph-tx{font-size:23px;letter-spacing:.22em;color:var(--ink-soft);font-weight:400}
+.disc .ph-sub{font-size:16px;letter-spacing:.16em;color:#a99d8f;font-weight:300}
+/* little serving cup base shadow */
+.cupbase{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);width:360px;height:60px;
+  background:radial-gradient(50% 100% at 50% 0,rgba(90,66,45,.16),transparent 70%);filter:blur(2px)}
+/* accent arc behind frame */
+.arc{position:absolute;width:660px;height:660px;border-radius:50%;
+  border:1.5px solid color-mix(in srgb,var(--accent) 40%,transparent);
+  border-right-color:transparent;border-bottom-color:transparent;transform:rotate(-38deg)}
+
+/* flavor block */
+.flavor{margin-top:6px}
+.flavor .jp{font-family:'Shippori Mincho',serif;font-weight:600;font-size:100px;line-height:1.04;letter-spacing:.04em;color:var(--ink)}
+.flavor .jp.small{font-size:76px}
+.flavor .en{margin-top:22px;font-family:'Shippori Mincho',serif;font-style:italic;font-weight:400;font-size:30px;letter-spacing:.12em;color:var(--accent-ink)}
+.flavor .desc{margin-top:30px;font-size:24px;line-height:2.1;font-weight:300;color:#544c45;max-width:800px;letter-spacing:.04em}
+
+/* tags */
+.tags{margin-top:40px;display:flex;flex-wrap:wrap;gap:14px}
+.tags .t{font-size:18px;letter-spacing:.12em;font-weight:400;color:var(--accent-ink);
+  border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));border-radius:999px;padding:11px 24px;background:rgba(255,255,255,.4)}
+
+/* footer */
+.foot{margin-top:56px;display:flex;justify-content:space-between;align-items:center}
+.foot .handle{font-size:20px;letter-spacing:.14em;color:var(--ink-soft);font-weight:300;display:flex;align-items:center;gap:14px}
+.foot .sprig{opacity:.85}
+
+/* dual layout (two gelato) tweaks */
+.frame.dual{width:640px;height:520px;display:flex;gap:26px;align-items:center;justify-content:center}
+.frame.dual .disc{position:relative;inset:auto;width:300px;height:300px;border-width:2px}
+.frame.dual .disc .ph-tx{font-size:18px}
+.frame.dual .ears{position:absolute;width:300px;height:70px;top:-4px}
+.frame.dual .e2{left:auto;right:0}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+</svg>
+<div class="sheet" id="sheet"></div>
+
+<script>
+const G = "@gill_by_lechatdesbois";
+
+// reusable svg bits ---------------------------------------------------------
+function grain(){return `<svg class="grain" width="1080" height="1920"><rect width="100%" height="100%" filter="url(#grain)"/></svg>`}
+
+function ears(fill,stroke){ // two cat ears sitting on top of the disc
+  return `<svg class="ears" viewBox="0 0 560 120" fill="none">
+    <path d="M150 118 C120 70 118 34 132 14 C146 -2 176 8 200 40 C214 60 224 86 228 112 Z" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M410 118 C440 70 442 34 428 14 C414 -2 384 8 360 40 C346 60 336 86 332 112 Z" fill="${fill}" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M168 96 C158 66 160 44 170 34" stroke="${stroke}" stroke-width="2" opacity=".5" fill="none"/>
+    <path d="M392 96 C402 66 400 44 390 34" stroke="${stroke}" stroke-width="2" opacity=".5" fill="none"/>
+  </svg>`;
+}
+function earsSmall(fill,stroke,cls){
+  return `<svg class="ears ${cls||''}" viewBox="0 0 300 70" fill="none">
+    <path d="M78 68 C62 40 61 20 69 9 C77 -1 93 5 106 22 C114 33 120 48 122 65 Z" fill="${fill}" stroke="${stroke}" stroke-width="2"/>
+    <path d="M222 68 C238 40 239 20 231 9 C223 -1 207 5 194 22 C186 33 180 48 178 65 Z" fill="${fill}" stroke="${stroke}" stroke-width="2"/>
+  </svg>`;
+}
+const camera = `<svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.5h2l1.2-1.8h6.6L15.5 8.5h2A1.5 1.5 0 0 1 19 10v7a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 17v-7A1.5 1.5 0 0 1 6.5 8.5"/><circle cx="12" cy="13" r="3.4"/></svg>`;
+
+const paw = (c)=>`<svg width="30" height="30" viewBox="0 0 40 40" fill="${c}"><ellipse cx="20" cy="27" rx="10" ry="8"/><ellipse cx="9" cy="17" rx="4" ry="5"/><ellipse cx="31" cy="17" rx="4" ry="5"/><ellipse cx="15" cy="10" rx="3.6" ry="4.6"/><ellipse cx="25" cy="10" rx="3.6" ry="4.6"/></svg>`;
+
+const sprig = (c)=>`<svg width="158" height="52" viewBox="0 0 158 52" fill="none" stroke="${c}" stroke-width="1.4" stroke-linecap="round">
+  <path d="M6 46 C46 40 104 34 152 10"/>
+  ${[0,1,2,3,4].map(i=>{const t=i/4;const x=22+t*112,y=42-t*29;
+    return `<path d="M${x} ${y} q-7 -11 2 -17 q9 4 6 15" fill="${c}" fill-opacity=".14" stroke-width="1.2"/>
+            <path d="M${x+9} ${y-3} q9 -8 19 -5 q-4 10 -16 8" fill="${c}" fill-opacity=".14" stroke-width="1.2"/>`}).join('')}
+  <circle cx="152" cy="10" r="2.6" fill="${c}" stroke="none"/>
+</svg>`;
+
+const catWatermark = (c,x,y,s)=>`<svg class="watermark" style="left:${x}px;top:${y}px;width:${s}px" viewBox="0 0 200 200" fill="${c}">
+  <path d="M100 40c-30 0-55 22-55 60 0 28 24 52 55 52s55-24 55-52c0-38-25-60-55-60z"/>
+  <path d="M50 44l-16-26 30 8z"/><path d="M150 44l16-26-30 8z"/>
+</svg>`;
+
+// data ----------------------------------------------------------------------
+const flavors = [
+  { jp:"白猫さん", en:"White Cat — Milk", accent:"#C9A77C", aink:"#9c7c53", tint:"#F4EFE6",
+    desc:"八ヶ岳のあさが、そのまま溶けたような。<br>しぼりたてミルクの、まっしろでやさしい一匹。",
+    tags:["八ヶ岳産ミルク","ミルク","定番"] },
+  { jp:"黒猫さん", en:"Black Cat — Black Sesame", accent:"#3A342F", aink:"#2a2622", tint:"#E7E2DA",
+    desc:"店名 GiLL の由来となった、あの子とおなじ色。<br>香ばしい黒ごまの、しっとり深い甘さ。",
+    tags:["国産黒ごま","香ばしい","定番"] },
+  { jp:"三毛猫さん", en:"Calico — Tri-color", accent:"#B98A5E", aink:"#8f6540", tint:"#F1E9DD",
+    desc:"三つの色が、そっと寄り添って一匹に。<br>ミルク・豆乳・きな粉と黒蜜の、和のハーモニー。",
+    tags:["ミルク","豆乳","きな粉","黒蜜"] },
+  { jp:"ちょこさん", en:"Chocolate", accent:"#6B4A32", aink:"#553828", tint:"#EDE3D8",
+    desc:"とろけて、ほどけて、長くのこる余韻。<br>濃厚なイタリア産カカオを、そのままひとさじ。",
+    tags:["イタリア産カカオ","濃厚","ビター"] },
+  { jp:"抹茶", en:"Matcha", accent:"#7C8A5A", aink:"#5f6d40", tint:"#EBEBDD",
+    desc:"石臼で挽いた、凛とした苦みと立ちのぼる香り。<br>大人のための、静かな一杯のような味わい。",
+    tags:["石臼挽き抹茶","ほろ苦","和"] },
+  { jp:"マンゴー＆<br>フランボワーズ", small:true, en:"Mango & Framboise", accent:"#D98A63", aink:"#b25f3c", tint:"#F6E7DC",
+    desc:"太陽をあつめたマンゴーの濃密。<br>そこへ、木苺のきらめく酸味をひとしずく。",
+    tags:["完熟マンゴー","フランボワーズ","季節限定"], dual:true },
+  { jp:"チーズ", en:"Cheese", accent:"#D8B45E", aink:"#a9873c", tint:"#F5EDD8",
+    desc:"なめらかなコクに、ほんのりとした塩気。<br>甘さと余韻のあいだで、そっと寄り添う一匹。",
+    tags:["クリームチーズ","濃厚","塩気"] },
+];
+
+const total = flavors.length;
+const sheet = document.getElementById('sheet');
+
+flavors.forEach((f,i)=>{
+  const n = String(i+1).padStart(2,'0');
+  const tot = String(total).padStart(2,'0');
+  const stage = f.dual
+    ? `<div class="frame dual">
+         <div style="position:relative">${earsSmall('#fff',`color-mix(in srgb,${f.accent} 60%,#cbb8a2)`)}
+           <div class="disc"><div class="ph-ic" style="color:${f.aink}">${camera}</div><div class="ph-tx">ジェラート ①</div></div></div>
+         <div style="position:relative">${earsSmall('#fff',`color-mix(in srgb,${f.accent} 60%,#cbb8a2)`,'e2')}
+           <div class="disc"><div class="ph-ic" style="color:${f.aink}">${camera}</div><div class="ph-tx">ジェラート ②</div></div></div>
+       </div>`
+    : `<div class="frame">
+         <div class="arc"></div>
+         ${ears('#fff',`color-mix(in srgb,${f.accent} 60%,#cbb8a2)`)}
+         <div class="disc">
+           <div class="ph-ic" style="color:${f.aink}">${camera}</div>
+           <div class="ph-tx">ここにジェラート写真</div>
+           <div class="ph-sub">Gelato photo</div>
+         </div>
+         <div class="cupbase"></div>
+       </div>`;
+
+  const el = document.createElement('div');
+  el.className='story';
+  el.style.cssText=`--accent:${f.accent};--accent-ink:${f.aink};--tint:${f.tint}`;
+  el.innerHTML = `
+    ${grain()}
+    <div class="vign"></div>
+    ${catWatermark(f.accent,700,1180,520)}
+    <div class="pad">
+      <div class="top">
+        <div class="brand">GiLL<small>ジェラート＆猫雑貨</small></div>
+        <div class="idx">No.<b>${n}</b> / ${tot}</div>
+      </div>
+      <div class="rule"></div>
+      <div class="eyebrow"><span class="dot"></span><span>Gelato Flavor</span></div>
+      <div class="stage">${stage}</div>
+      <div class="flavor">
+        <div class="jp ${f.small?'small':''}">${f.jp}</div>
+        <div class="en">${f.en}</div>
+        <div class="desc">${f.desc}</div>
+        <div class="tags">${f.tags.map(t=>`<span class="t">${t}</span>`).join('')}</div>
+      </div>
+      <div class="foot">
+        <div class="handle">${paw(f.accent)} ${G}</div>
+        <div class="sprig">${sprig(f.accent)}</div>
+      </div>
+    </div>`;
+  sheet.appendChild(el);
+});
+</script>
+</body>
+</html>
