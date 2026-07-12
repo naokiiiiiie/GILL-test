@@ -7,7 +7,8 @@ const outDir = process.argv[2] || path.join(dir, 'out');
 const scale = Number(process.argv[3] || 1);
 fs.mkdirSync(outDir, { recursive: true });
 
-const names = ['01_shironeko','02_kuroneko','03_mikeneko','04_choco','05_matcha','06_mango-framboise','07_cheese'];
+const names = ['01_shironeko','02_kuroneko','03_mikeneko','04_choco','05_matcha','06_mango-framboise','07_cheese',
+  'template_blank','template_seasonal','access_map'];
 
 const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
 const page = await browser.newPage({ viewport: { width: 1200, height: 2000 }, deviceScaleFactor: scale });
