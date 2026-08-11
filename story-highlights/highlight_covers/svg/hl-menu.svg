@@ -3,10 +3,11 @@
   <circle cx="540" cy="540" r="462" fill="none" stroke="#E0A0B4" stroke-width="2" stroke-dasharray="9 7" opacity="0.55"/>
   <circle cx="540" cy="540" r="420" fill="none" stroke="#E0A0B4" stroke-width="1" opacity="0.35"/>
   <g transform="translate(540,300)">
-      <path d="M-40,-6 Q-36,-58 0,-58 Q36,-58 40,-6 Z" fill="#E0A0B4" fill-opacity="0.16" stroke="#E0A0B4" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M-40,-6 L0,64 L40,-6 Z" fill="#E0A0B4" fill-opacity="0.16" stroke="#E0A0B4" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M-24,-14 Q0,-34 24,-14" stroke="#E0A0B4" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.7"/>
-      <circle cx="0" cy="-58" r="6" fill="#E0A0B4" fill-opacity="0.5" stroke="none"/></g>
+      <path d="M-30,-58 a30,30 0 0 1 60,0 Z" fill="#E0A0B4" stroke="none"/>
+      <path d="M-33,-52 a33,20 0 0 0 66,0 Z" fill="#E0A0B4" stroke="none"/>
+      <path d="M-33,-40 L0,66 L33,-40 Z" fill="#E0A0B4" stroke="none"/>
+      <path d="M-20,-33 L0,52 L20,-33 Z" fill="#F8EAEC" stroke="none" opacity="0.35"/>
+      <circle cx="0" cy="-62" r="8" fill="#E0A0B4" stroke="none"/></g>
   <text x="540" y="512" text-anchor="middle" fill="#3A2E2C" font-family="'Shippori Mincho','Hiragino Mincho ProN',serif" font-weight="600" font-size="72" letter-spacing="0.08em">メニュー</text>
   <text x="540" y="582" text-anchor="middle" fill="#C17E97" font-family="'Zen Kaku Gothic New','Hiragino Sans','Noto Sans JP',sans-serif" font-weight="400" font-size="32" letter-spacing="0.24em">MENU</text>
   <line x1="440" y1="628" x2="640" y2="628" stroke="#E0A0B4" stroke-width="1.5" opacity="0.6"/>
