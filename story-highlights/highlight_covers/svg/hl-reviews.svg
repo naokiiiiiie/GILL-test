@@ -1,0 +1,14 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1080" fill="#E5EFF3"/>
+  <circle cx="540" cy="540" r="462" fill="none" stroke="#9DC4D6" stroke-width="2" stroke-dasharray="9 7" opacity="0.55"/>
+  <circle cx="540" cy="540" r="420" fill="none" stroke="#9DC4D6" stroke-width="1" opacity="0.35"/>
+  <g transform="translate(540,300)">
+      <path d="M-46,-36 L34,-36 Q48,-36 48,-22 L48,12 Q48,26 34,26 L-4,26 L-26,46 L-23,26 L-46,26 Q-46,26 -46,12 Z" fill="#9DC4D6" stroke="none" transform="translate(0,-2)"/>
+      <circle cx="-18" cy="-6" r="5" fill="#E5EFF3" stroke="none"/>
+      <circle cx="0" cy="-6" r="5" fill="#E5EFF3" stroke="none"/>
+      <circle cx="18" cy="-6" r="5" fill="#E5EFF3" stroke="none"/></g>
+  <text x="540" y="512" text-anchor="middle" fill="#3A2E2C" font-family="'Shippori Mincho','Hiragino Mincho ProN',serif" font-weight="600" font-size="72" letter-spacing="0.08em">口コミ</text>
+  <text x="540" y="582" text-anchor="middle" fill="#6F9FB0" font-family="'Zen Kaku Gothic New','Hiragino Sans','Noto Sans JP',sans-serif" font-weight="400" font-size="32" letter-spacing="0.24em">REVIEWS</text>
+  <line x1="440" y1="628" x2="640" y2="628" stroke="#9DC4D6" stroke-width="1.5" opacity="0.6"/>
+  <text x="540" y="680" text-anchor="middle" fill="#b3a595" font-family="'Shippori Mincho','Hiragino Mincho ProN',serif" font-weight="500" font-size="26" letter-spacing="0.28em">GiLL</text>
+</svg>

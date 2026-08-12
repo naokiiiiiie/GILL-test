@@ -1,0 +1,13 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1080" fill="#FBF0DA"/>
+  <circle cx="540" cy="540" r="462" fill="none" stroke="#E4B45C" stroke-width="2" stroke-dasharray="9 7" opacity="0.55"/>
+  <circle cx="540" cy="540" r="420" fill="none" stroke="#E4B45C" stroke-width="1" opacity="0.35"/>
+  <g transform="translate(540,300)">
+      <path d="M4,-58 C42,-42 42,22 4,56 C-34,22 -34,-42 4,-58 Z" fill="#E4B45C" stroke="none"/>
+      <path d="M4,-50 C4,-14 4,24 4,52" stroke="#FBF0DA" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.5"/>
+      <path d="M4,-20 C-10,-24 -20,-34 -24,-46 M4,2 C16,-2 26,-12 30,-24" stroke="#FBF0DA" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.5"/></g>
+  <text x="540" y="512" text-anchor="middle" fill="#3A2E2C" font-family="'Shippori Mincho','Hiragino Mincho ProN',serif" font-weight="600" font-size="58" letter-spacing="0.08em">今月の限定</text>
+  <text x="540" y="582" text-anchor="middle" fill="#C0944A" font-family="'Zen Kaku Gothic New','Hiragino Sans','Noto Sans JP',sans-serif" font-weight="400" font-size="32" letter-spacing="0.24em">SEASONAL</text>
+  <line x1="440" y1="628" x2="640" y2="628" stroke="#E4B45C" stroke-width="1.5" opacity="0.6"/>
+  <text x="540" y="680" text-anchor="middle" fill="#b3a595" font-family="'Shippori Mincho','Hiragino Mincho ProN',serif" font-weight="500" font-size="26" letter-spacing="0.28em">GiLL</text>
+</svg>

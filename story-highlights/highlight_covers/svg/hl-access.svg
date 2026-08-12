@@ -1,0 +1,12 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1080" fill="#E6F0E8"/>
+  <circle cx="540" cy="540" r="462" fill="none" stroke="#93C09E" stroke-width="2" stroke-dasharray="9 7" opacity="0.55"/>
+  <circle cx="540" cy="540" r="420" fill="none" stroke="#93C09E" stroke-width="1" opacity="0.35"/>
+  <g transform="translate(540,300)">
+      <path d="M0,-54 C-27,-54 -40,-33 -40,-12 C-40,17 0,60 0,60 C0,60 40,17 40,-12 C40,-33 27,-54 0,-54 Z" fill="#93C09E" stroke="none"/>
+      <circle cx="0" cy="-14" r="13" fill="#E6F0E8" stroke="none"/></g>
+  <text x="540" y="512" text-anchor="middle" fill="#3A2E2C" font-family="'Shippori Mincho','Hiragino Mincho ProN',serif" font-weight="600" font-size="72" letter-spacing="0.08em">アクセス</text>
+  <text x="540" y="582" text-anchor="middle" fill="#6FA37E" font-family="'Zen Kaku Gothic New','Hiragino Sans','Noto Sans JP',sans-serif" font-weight="400" font-size="32" letter-spacing="0.24em">ACCESS</text>
+  <line x1="440" y1="628" x2="640" y2="628" stroke="#93C09E" stroke-width="1.5" opacity="0.6"/>
+  <text x="540" y="680" text-anchor="middle" fill="#b3a595" font-family="'Shippori Mincho','Hiragino Mincho ProN',serif" font-weight="500" font-size="26" letter-spacing="0.28em">GiLL</text>
+</svg>
